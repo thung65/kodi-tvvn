@@ -186,7 +186,7 @@ def play_link(chn, src):
         the_data = json.loads(the_page)
         full_url=the_data['stream']
 
-    #m3u8 url from sctv
+    #m3u8 url from tvnet
     elif data['channels'][chn]['src']['playpath'] == "m3u8_tvnet":
         url = 'http://au.tvnet.gov.vn/kenh-truyen-hinh/'+data['channels'][chn]['src']['page_id']
         stringA = opener.open(url).read().decode('utf-8')
@@ -202,7 +202,7 @@ def play_link(chn, src):
 
     #m3u8 url from vtvgo
     elif data['channels'][chn]['src']['playpath'] == "m3u8_vtvgo":
-        url = 'http://vtvgo.vn/channel'+data['channels'][chn]['src']['page_url']
+        url = data['channels'][chn]['src']['page_url']
         stringA = opener.open(url).read().decode('utf-8')
         stringB = "var link = '"
         stringC = "'" 
